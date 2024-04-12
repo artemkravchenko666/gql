@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common';
-import { PostsService } from './posts.service';
-import { PostsResolver } from './posts.resolver';
-import { PostCommentsModule } from '../post-comments/post-comments.module';
+import { PubSub } from 'graphql-subscriptions';
 
 @Module({
-  imports: [PostCommentsModule],
-  providers: [PostsService, PostsResolver],
-  exports: [PostsService],
+  providers: [
+    {
+      provide: 'PUB_SUB',
+      useValue: new PubSub(),
+    },
+  ],
+  exports: ['PUB_SUB'],
 })
-export class PostsModule {}
+export class CommonModule {}

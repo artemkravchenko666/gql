@@ -1,7 +1,7 @@
 import { Field, InputType } from '@nestjs/graphql';
 
 @InputType()
-export class CommentInput {
+export class PostCommentsInput {
   @Field()
   title: string;
 }

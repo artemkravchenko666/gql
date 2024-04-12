@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
-import { PostsService } from './posts.service';
-import { PostsResolver } from './posts.resolver';
+import { PostCommentsService } from './post-comments.service';
+import { PostCommentsResolver } from './post-comments.resolver';
+import { CommonModule } from '../common/common.module';
 
 @Module({
-  imports: [],
-  providers: [PostsService, PostsResolver],
-  exports: [PostsService],
+  imports: [CommonModule],
+  providers: [PostCommentsService, PostCommentsResolver],
+  exports: [PostCommentsService],
 })
-export class PostsModule {}
+export class PostCommentsModule {}
